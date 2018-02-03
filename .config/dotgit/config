@@ -128,3 +128,6 @@
 
 [status]
     showUntrackedFiles = no
+[remote "origin"]
+	url = https://github.com/Yayg/.dotfiles.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
