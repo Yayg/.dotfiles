@@ -27,6 +27,9 @@
     profiles = profile ls
     pf       = profile
 
+    # installation
+    install="!/$GIT_DIR/../install"
+
     # internals
     i-cfg     = "!git --git-dir=\"$GIT_DIR\" "
 
@@ -129,5 +132,5 @@
 [status]
     showUntrackedFiles = no
 [remote "origin"]
-	url = https://github.com/Yayg/.dotfiles.git
+	url = git@github.com:Yayg/.dotfiles.git
 	fetch = +refs/heads/*:refs/remotes/origin/*
