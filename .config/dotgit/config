@@ -28,7 +28,7 @@
     pf       = profile
 
     # installation
-    install="!/$GIT_DIR/../install"
+    install="!/$GIT_DIR/../../install"
 
     # internals
     i-cfg     = "!git --git-dir=\"$GIT_DIR\" "

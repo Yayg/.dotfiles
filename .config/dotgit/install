@@ -1,0 +1,3 @@
+#! /usr/bin/env sh
+
+echo You need to fill .config/dotgit/install with your own installation commands

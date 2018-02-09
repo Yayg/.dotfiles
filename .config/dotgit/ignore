@@ -1,4 +1,5 @@
-.config/dotgit/
+.config/dotgit/*
+!\.config/dotgit/install
 
 # Nixes
 .cache/
