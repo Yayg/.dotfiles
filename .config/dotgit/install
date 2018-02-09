@@ -1,0 +1,7 @@
+#! /usr/bin/env zsh
+
+ARGV0="dot-install"
+set -v
+cd ~
+env -u GIT_DIR -u GIT_WORK_TREE $EDITOR -c ":PlugInstall | q | q"
+cd -
