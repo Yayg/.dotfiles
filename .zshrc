@@ -13,16 +13,15 @@ export LANG=en_US.UTF-8
 export SAVEHIST=4096
 export XDG_CONFIG_HOME=~/.config
 
-
-if command most 2> /dev/null; then
+if which most >/dev/null 2>&1; then
     export PAGER="most"
-elif command less 2> /dev/null; then
+elif which less >/dev/null 2>&1; then
     export PAGER="less"
 fi
-if command nvim 2> /dev/null; then
-    export EDITOR="nvim"
+if which nvim >/dev/null 2>&1; then
+    export EDITOR=nvim
 else
-    export EDITOR="vim"
+    export EDITOR=vim
 fi
 export VISUAL=$EDITOR
 export GIT_EDITOR=$EDITOR
@@ -53,6 +52,7 @@ unsetopt beep notify
 alias bright='xrandr --output eDP1 --brightness '
 alias cp="cp -i"
 alias df='df -h'
+alias d='PATH="$HOME/.config/dotgit/bin:$PATH" git --git-dir="$HOME/.config/dotgit/repo" --work-tree="$HOME"'
 alias dot='PATH="$HOME/.config/dotgit/bin:$PATH" git --git-dir="$HOME/.config/dotgit/repo" --work-tree="$HOME"'
 alias g='git'
 alias grep='grep --color=tty -d skip'
@@ -136,7 +136,7 @@ bindkey '[D' emacs-backward-word
 bindkey '[C' emacs-forward-word
 
 # SSH agent
-if [ -z $WP ]; then
+if [ -z "$WP" ]; then
    if [ ! -S ~/.ssh/ssh_auth_sock ]; then
        eval `ssh-agent`
        ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
@@ -160,8 +160,9 @@ function agent
   export GPG_AGENT_INFO
 }
 
-precmd() { echo -ne '\a'; } # notification when command end
-
 # Arista stuff
 func_file=~/.arista-functions.sh 
 [ -e $func_file ] && source $func_file
+
+precmd() { echo -ne '\a'; } # notification when command end
+

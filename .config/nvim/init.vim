@@ -74,33 +74,35 @@ Plug 'spf13/vim-colors'
 Plug 'jpo/vim-railscasts-theme'
 
 "+--- Airline ---+"
-Plug 'bling/vim-airline'
-set laststatus=2
-let g:Powerline_symbols = "fancy"
-let g:airline_powerline_fonts =1
-let g:airline#extensions#tabline#enabled = 1
+if !has("nvim")
+   Plug 'bling/vim-airline'
+   set laststatus=2
+   let g:Powerline_symbols = "fancy"
+   let g:airline_powerline_fonts =1
+   let g:airline#extensions#tabline#enabled = 1
 
-" unicode symbols
-    if !exists('g:airline_symbols')
-      let g:airline_symbols = {}
-    endif
-    let g:airline_left_sep = '»'
-    let g:airline_right_sep = '«'
-    let g:airline_right_sep = '<'
-    let g:airline_left_sep = '>'
-    let g:airline#extensions#tabline#left_sep = ' '
-    let g:airline#extensions#tabline#left_alt_sep = '|'
-    let g:airline_symbols.linenr = '␊'
-    let g:airline_symbols.linenr = '␤'
-    let g:airline_symbols.linenr = '¶'
-    let g:airline_symbols.branch = 'Ξ'
-    let g:airline_symbols.paste = 'ρ'
-    let g:airline_symbols.paste = 'Þ'
-    let g:airline_symbols.paste = '∥'
-    let g:airline_symbols.whitespace = 'Ξ'
+"  unicode symbols
+   if !exists('g:airline_symbols')
+     let g:airline_symbols = {}
+   endif
+   let g:airline_left_sep = '»'
+   let g:airline_right_sep = '«'
+   let g:airline_right_sep = '<'
+   let g:airline_left_sep = '>'
+   let g:airline#extensions#tabline#left_sep = ' '
+   let g:airline#extensions#tabline#left_alt_sep = '|'
+   let g:airline_symbols.linenr = '␊'
+   let g:airline_symbols.linenr = '␤'
+   let g:airline_symbols.linenr = '¶'
+   let g:airline_symbols.branch = 'Ξ'
+   let g:airline_symbols.paste = 'ρ'
+   let g:airline_symbols.paste = 'Þ'
+   let g:airline_symbols.paste = '∥'
+   let g:airline_symbols.whitespace = 'Ξ'
+endif
 
-  " All of your Plugins must be added before the following line
-call plug#end()            " required
+" All of your Plugins must be added before the following line
+call plug#end()
 
 colorscheme railscasts
 " colorscheme molokai
