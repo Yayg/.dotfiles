@@ -123,6 +123,7 @@ imap <F4> <c-o>:call GotoDefinition()<CR>
 map <C-e> :NERDTreeToggle<CR>
 map <C-k> :call InterestingWords('n')<cr>
 map <C-l> :call UncolorAllWords()<cr>
+map <C-x> :bd <cr>
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
